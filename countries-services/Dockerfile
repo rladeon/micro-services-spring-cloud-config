@@ -1,0 +1,12 @@
+FROM openjdk:11
+
+COPY /target/countries-services-0.0.1-SNAPSHOT.jar /usr/app/
+
+WORKDIR /usr/app
+
+# Make port 8000 available to the world outside this container
+EXPOSE 8000
+
+RUN sh -c 'touch countries-services-0.0.1-SNAPSHOT.jar'
+
+ENTRYPOINT ["java","-jar","countries-services-0.0.1-SNAPSHOT.jar"]
